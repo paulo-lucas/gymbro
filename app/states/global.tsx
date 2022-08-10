@@ -1,4 +1,5 @@
 import React, { createContext, useState, useCallback, useMemo } from 'react';
+import { Appearance } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { ThemeData } from '@app/entities/theme';
@@ -16,7 +17,8 @@ interface ProviderProps {
 export const GlobalContext = createContext({} as ContextData);
 
 const GlobalProvider: React.FC<ProviderProps> = ({ children }) => {
-  const [isThemeDark, setIsThemeDark] = useState<boolean>(false);
+  const colorScheme = Appearance.getColorScheme();
+  const [isThemeDark, setIsThemeDark] = useState(colorScheme === 'dark');
 
   const toggleTheme = useCallback(() => {
     return setIsThemeDark(!isThemeDark);
