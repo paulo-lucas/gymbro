@@ -357,6 +357,8 @@ PODS:
   - RNGoogleSignin (8.0.0):
     - GoogleSignIn (~> 6.2.2)
     - React-Core
+  - RNSVG (12.4.3):
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -395,6 +397,7 @@ DEPENDENCIES:
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNGoogleSignin (from `../node_modules/@react-native-google-signin/google-signin`)"
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -483,6 +486,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/auth"
   RNGoogleSignin:
     :path: "../node_modules/@react-native-google-signin/google-signin"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -535,6 +540,7 @@ SPEC CHECKSUMS:
   RNFBApp: 0db41be0ca09ec0828164f16cd36732c0df8dabb
   RNFBAuth: 5258f9a4402f8dd1b85eebb00f62511e073c79b3
   RNGoogleSignin: b2179ba653c759b936404a7746fc5302f9de6a5a
+  RNSVG: f3b60aeeaa81960e2e0536c3a9eef50b667ef3a9
   Yoga: 44c64131616253fa83366295acdbce3d14926041
 
 PODFILE CHECKSUM: 40de414da7c2589debe3d0cade710182fbb1ecff
