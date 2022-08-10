@@ -1,6 +1,6 @@
 import { Platform, NativeModules } from 'react-native';
 import { I18n } from 'i18n-js';
-import { Translate } from '@app/interfaces/i18n';
+import { Translate } from '@app/entities/i18n';
 
 import en from './translations/en-US';
 import pt from './translations/pt-BR';

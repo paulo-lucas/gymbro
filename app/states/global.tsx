@@ -1,7 +1,7 @@
 import React, { createContext, useState, useCallback, useMemo } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
-import { ThemeData } from '@app/interfaces/theme';
+import { ThemeData } from '@app/entities/theme';
 
 import { defaultTheme, darkTheme } from '@app/theme';
 
