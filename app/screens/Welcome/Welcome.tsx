@@ -2,12 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { ImgWelcome } from '@app/assets/images';
 
-const Welcome: React.FC = () => {
+const WelcomeScreen: React.FC = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ImgWelcome />
+      <ImgWelcome width={50} />
     </View>
   );
 };
 
-export default Welcome;
+export default WelcomeScreen;
