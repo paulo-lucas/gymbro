@@ -5,3 +5,5 @@ App para gestão de vida fitness e acompanhamento com personal.
 
 ## Stack
 React Native e Firebase
+
+## ...
