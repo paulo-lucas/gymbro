@@ -1,11 +1,16 @@
 import React from 'react';
-import { View } from 'react-native';
-import { ImgWelcome } from '@app/assets/images';
+import { View, Text } from 'react-native';
+import { Button } from 'react-native-paper';
+import { useTheme } from '@app/hooks';
 
 const WelcomeScreen: React.FC = () => {
+  const { toggleTheme } = useTheme();
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ImgWelcome width={50} />
+      <Button icon="camera" mode="contained" onPress={toggleTheme}>
+        <Text>Press me</Text>
+      </Button>
     </View>
   );
 };

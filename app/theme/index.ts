@@ -1,17 +1,32 @@
-import { DarkTheme as PaperDarkTheme } from 'react-native-paper';
-import { DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
+import {
+  DefaultTheme as PaperDefault,
+  DarkTheme as PaperDark,
+} from 'react-native-paper';
+import {
+  DefaultTheme as NavigationDefault,
+  DarkTheme as NavigationDark,
+} from '@react-navigation/native';
 import merge from 'deepmerge';
 
 import colors from './colors';
 
-const customTheme = {
-  ...PaperDarkTheme,
+const CustomDefault = {
+  ...PaperDefault,
   colors: {
-    ...PaperDarkTheme.colors,
+    ...PaperDefault.colors,
     ...colors,
   },
 };
 
-export const theme = merge(customTheme, NavigationDarkTheme);
+const CustomDark = {
+  ...PaperDark,
+  colors: {
+    ...PaperDark.colors,
+    ...colors,
+  },
+};
 
-export type ThemeOverride = typeof theme;
+export const defaultTheme = merge(CustomDefault, NavigationDefault);
+export const darkTheme = merge(CustomDark, NavigationDark);
+
+export type ThemeOverride = typeof defaultTheme;
