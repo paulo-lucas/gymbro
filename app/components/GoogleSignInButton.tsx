@@ -5,7 +5,7 @@ import { signInWithGoogleAsync } from '@app/services/signin';
 import { useTheme } from '@app/hooks';
 
 interface Props {
-  onSuccess(user: FirebaseAuthTypes.UserCredential): void;
+  onSuccess?(user: FirebaseAuthTypes.UserCredential): void;
   onError?(err: any): void;
 }
 
