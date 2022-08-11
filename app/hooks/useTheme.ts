@@ -1,7 +1,4 @@
 import { useContext } from 'react';
-import { GlobalContext } from '@app/states/global';
+import { ThemeContext } from '@app/states/theme';
 
-export const useTheme = () => {
-  const { theme } = useContext(GlobalContext);
-  return theme;
-};
+export const useTheme = () => useContext(ThemeContext);

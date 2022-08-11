@@ -25,7 +25,7 @@ const WelcomeScreen: React.FC = () => {
       <View style={styles.container}>
         <Image source={isThemeDark ? LogoWhite : Logo} style={styles.logo} />
         <ImgWelcome width="80%" style={styles.image} />
-        <GoogleSigninButton onSuccess={onSuccess} />
+        <GoogleSigninButton onSuccess={onSuccess} onError={console.log} />
       </View>
     </SafeAreaView>
   );

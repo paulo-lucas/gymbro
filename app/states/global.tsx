@@ -1,43 +1,36 @@
-import React, { createContext, useState, useCallback, useMemo } from 'react';
-import { Appearance } from 'react-native';
+import React, { useEffect, useState, useMemo, createContext } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
-import { ThemeData } from '@app/entities/theme';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
-import { defaultTheme, darkTheme } from '@app/theme';
+import { useTheme } from '@app/hooks';
+import { ProviderProps, GlobalData } from '@app/entities/context';
 
-interface ContextData {
-  theme: ThemeData;
-}
-
-interface ProviderProps {
-  children: React.ReactNode;
-}
-
-export const GlobalContext = createContext({} as ContextData);
+export const GlobalContext = createContext({} as GlobalData);
 
 const GlobalProvider: React.FC<ProviderProps> = ({ children }) => {
-  const colorScheme = Appearance.getColorScheme();
-  const [isThemeDark, setIsThemeDark] = useState(colorScheme === 'dark');
+  const { theme } = useTheme();
+  const [user, setUser] = useState<FirebaseAuthTypes.User>();
 
-  const toggleTheme = useCallback(() => {
-    return setIsThemeDark(!isThemeDark);
-  }, [isThemeDark]);
+  const onAuthStateChanged = (firebaseUser: FirebaseAuthTypes.User | null) =>
+    setUser(firebaseUser ?? undefined);
 
-  const theme = useMemo(
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, []);
+
+  const globalData: GlobalData = useMemo(
     () => ({
-      toggleTheme,
-      isThemeDark,
+      user,
     }),
-    [toggleTheme, isThemeDark],
+    [user],
   );
 
-  let currentTheme = isThemeDark ? darkTheme : defaultTheme;
-
   return (
-    <GlobalContext.Provider value={{ theme }}>
-      <PaperProvider theme={currentTheme}>
-        <NavigationContainer theme={currentTheme}>
+    <GlobalContext.Provider value={globalData}>
+      <PaperProvider theme={theme}>
+        <NavigationContainer theme={theme as any}>
           {children}
         </NavigationContainer>
       </PaperProvider>
