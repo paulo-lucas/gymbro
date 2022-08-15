@@ -1,7 +1,7 @@
 import React, { useState, createContext, useCallback, useMemo } from 'react';
 import { Appearance } from 'react-native';
 
-import { ProviderProps, ThemeData } from '@app/entities/context';
+import { ProviderProps, ThemeData } from '@app/interfaces/context';
 import { defaultTheme, darkTheme } from '@app/theme';
 
 export const ThemeContext = createContext({} as ThemeData);

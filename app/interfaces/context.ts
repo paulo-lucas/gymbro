@@ -5,7 +5,7 @@ export interface ProviderProps {
 }
 
 export interface GlobalData {
-  user?: FirebaseAuthTypes.User;
+  user: FirebaseAuthTypes.User | null;
 }
 
 export interface ThemeData {

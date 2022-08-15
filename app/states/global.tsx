@@ -4,16 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
 import { useTheme } from '@app/hooks';
-import { ProviderProps, GlobalData } from '@app/entities/context';
+import { ProviderProps, GlobalData } from '@app/interfaces/context';
 
 export const GlobalContext = createContext({} as GlobalData);
 
 const GlobalProvider: React.FC<ProviderProps> = ({ children }) => {
   const { theme } = useTheme();
-  const [user, setUser] = useState<FirebaseAuthTypes.User>();
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
 
   const onAuthStateChanged = (firebaseUser: FirebaseAuthTypes.User | null) =>
-    setUser(firebaseUser ?? undefined);
+    setUser(firebaseUser);
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
